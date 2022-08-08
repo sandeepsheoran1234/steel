@@ -306,7 +306,13 @@ app.post("/register", async (req, res) => {
 
 
 app.get("/logout", auth, function(req, res, next) {
-  
+   try{
+    res.clearCookie("jwt");
+    res.render('signin')
+    console.log("logout successful");
+  }catch(err){
+    console.log(err);
+  }
 })
 
 
